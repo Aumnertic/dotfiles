@@ -14,6 +14,10 @@ end
 
 function M.setup(wezterm)
   local wallpaper = wezterm.home_dir .. "/.config/wezterm/assets/desktop-wallpaper-blurred.png"
+  -- No wallpaper on this machine: keep the plain frosted window in fullscreen too.
+  local f = io.open(wallpaper, "r")
+  if not f then return end
+  f:close()
   local fullscreen_background = {
     {
       source = { File = wallpaper },

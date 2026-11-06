@@ -205,4 +205,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [[ ":$PATH:" != *":$HOME/.config/kaku/zsh/bin:"* ]] && export PATH="$HOME/.config/kaku/zsh/bin:$PATH" # Kaku PATH Integration
 [[ -f "$HOME/.config/kaku/zsh/kaku.zsh" ]] && source "$HOME/.config/kaku/zsh/kaku.zsh" # Kaku Shell Integration
 
-export PATH="$HOME/projects/pso:$PATH"
+# Starship prompt. Kaku initializes it itself; elsewhere do it here.
+if command -v starship >/dev/null 2>&1 && [[ -z "${STARSHIP_SHELL:-}" ]]; then
+  eval "$(starship init zsh)"
+fi

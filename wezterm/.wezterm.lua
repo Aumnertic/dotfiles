@@ -15,7 +15,8 @@ tabs.setup(wezterm)
 return {
   initial_cols = 150,
   initial_rows = 44,
-  font = wezterm.font("JetBrains Mono"),
+  -- Nerd Font symbols as fallback so starship / eza icons always render.
+  font = wezterm.font_with_fallback({ "JetBrains Mono", "Symbols Nerd Font Mono" }),
   font_size = 14,
   color_schemes = {
     ["rose-pine-moon-soft-red"] = rose_pine_moon,
